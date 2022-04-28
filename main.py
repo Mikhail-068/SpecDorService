@@ -8,7 +8,7 @@ HEADERS = {'accept': '*/*',
             AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
 url = 'https://zan.tambov.gov.ru'
 
-
+# Сайт https://zan.tambov.gov.ru/employer/detail/?companyId=470df58e-ee6b-11e8-adb0-000c2973da2c
 # ========= Проходимся по 2 страницам =============
 for p in range(1,3):
 
