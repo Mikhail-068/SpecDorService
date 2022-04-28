@@ -23,7 +23,7 @@ for p in range(1,3):
         salary = BeautifulSoup(Data_list[i]['FromTo'], 'lxml').text
         Date = Data_list[i]['Date']
 
-        with open(f'Вакансии Спецдорсервиса на {Date}.txt', 'a', encoding='utf8') as f:
+        with open(f'Вакансии/Вакансии Спецдорсервиса на {Date}.txt', 'a', encoding='utf8') as f:
             f.write(f"Профессия: {Profession}\nКол-во мест: {Required}\nЗарплата: {salary}\n\n")
 
 
