@@ -9,7 +9,9 @@ HEADERS = {'accept': '*/*',
 url = 'https://zan.tambov.gov.ru'
 
 
+# ========= Проходимся по 2 страницам =============
 for p in range(1,3):
+
     path = f'https://zan.tambov.gov.ru/Employer/EmployerVacancy/?EmployerId=470df58e-ee6b-11e8-adb0-000c2973da2c&Sort=1\
             &take=10&skip=0&page={p}&pageSize=10'
     response = requests.get(path, headers=HEADERS)
@@ -23,9 +25,9 @@ for p in range(1,3):
         salary = BeautifulSoup(Data_list[i]['FromTo'], 'lxml').text
         Date = Data_list[i]['Date']
 
+# ========= Записываем данные в текстовый файл ===========
+
         with open(f'Вакансии/Вакансии Спецдорсервиса на {Date}.txt', 'a', encoding='utf8') as f:
             f.write(f"Профессия: {Profession}\nКол-во мест: {Required}\nЗарплата: {salary}\n\n")
 
 
-# with open('File.json', 'w', encoding='utf8') as file:
-#     json.dump(Json, file, indent=2, ensure_ascii=False)
