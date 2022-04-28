@@ -13,8 +13,10 @@ url = 'https://zan.tambov.gov.ru'
 
 
 # ===== Кол-во работодателей и страниц =====
-def CountPage(path):
-    response = requests.get(path, headers=HEADERS).text
+def CountPage():
+    with open('PAGES/Page_0.html', 'r', encoding='utf8') as f:
+        response = f.read()
+
     soup = BeautifulSoup(response, 'lxml')
     stroka = soup.find(class_='k-header k-grid-toolbar k-grid-top').find('label')
     s1 = list(stroka)
@@ -32,8 +34,9 @@ def CountPage(path):
 
 
 # ===== Выцепляем названия столбцов =====
-def CreateColumns(path):
-    response = requests.get(path, headers=HEADERS).text
+def CreateColumns():
+    with open('PAGES/Page_0.html', 'r', encoding='utf8') as f:
+        response = f.read()
     soup = BeautifulSoup(response, 'lxml')
     Columns = soup.find('table').find('thead').find_all('th')
 
@@ -49,9 +52,9 @@ def CreateColumns(path):
 
 
 # ===== Выцепляем данные столбцов
-def CreateData(path):
+def CreateData(response):
     data = []
-    response = requests.get(path, headers=HEADERS).text
+
     soup = BeautifulSoup(response, 'lxml')
     body = soup.find('table').find('tbody').find_all('tr')
     for i in body:
@@ -60,26 +63,25 @@ def CreateData(path):
             temp.append(n.text.strip())
         data.append(temp)
     return data
-# path_1 = f'https://zan.tambov.gov.ru/employer/index?Grid-sort=&Grid-page=1&Grid-pageSize=10&Grid-group=&Grid-filter='
-# count_page = CountPage(path_1)
-# column = CreateColumns(path_1)
-# data = []
 
-# for p in range(count_page[1]+1):
+count_page = CountPage()
+column = CreateColumns()
+old_data = []
+new_data = []
+
+
 for p in range(89):
-    path = f'https://zan.tambov.gov.ru/employer/index?Grid-sort=&Grid-page={p}&Grid-pageSize=10&Grid-group=&Grid-filter='
+    with open(f'PAGES/Page_{p}.html', 'r', encoding='utf8') as f:
+        response = f.read()
 
-    response = requests.get(path, headers=HEADERS).text
-    with open(f'PAGES/Page_{p}.html', 'w', encoding='utf8') as file:
-        file.write(response)
-    print(f"Страница: {p+1}")
-    sleep(1)
+    old_data.append(CreateData(response))
+    print(f"Готова {p} страница")
 
+for data_1 in old_data:
+    for data_2 in data_1:
+        new_data.append(data_2)
 
-
-
-#     data.append(CreateData(path))
-#
-# pprint(data)
-# # df = pd.DataFrame(data, columns=column)
-# # df.to_csv('Организации.csv', sep=';', encoding='1251')
+print(f"Pandas пишет...")
+df = pd.DataFrame(new_data, columns=column)
+df.to_csv('Организации.csv', sep=';', encoding='1251')
+print("Готово!")
