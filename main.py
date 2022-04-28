@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import pandas as pd
 from pprint import pprint
 
 HEADERS = {'accept': '*/*',
@@ -9,6 +10,9 @@ HEADERS = {'accept': '*/*',
 url = 'https://zan.tambov.gov.ru'
 
 
+column = ["Профессия", "Кол-во мест", "Зарплата", "Дата"]
+data = []
+# ====== Парсинг 2 страниц =======
 for p in range(1,3):
     path = f'https://zan.tambov.gov.ru/Employer/EmployerVacancy/?EmployerId=470df58e-ee6b-11e8-adb0-000c2973da2c&Sort=1\
             &take=10&skip=0&page={p}&pageSize=10'
@@ -22,10 +26,10 @@ for p in range(1,3):
         Required = Data_list[i]['Required']
         salary = BeautifulSoup(Data_list[i]['FromTo'], 'lxml').text
         Date = Data_list[i]['Date']
+        temp = [Profession, Required, salary, Date]
+        data.append(temp)
 
-        with open(f'Вакансии/Вакансии Спецдорсервиса на {Date}.txt', 'a', encoding='utf8') as f:
-            f.write(f"Профессия: {Profession}\nКол-во мест: {Required}\nЗарплата: {salary}\n\n")
+df = pd.DataFrame(data, columns=column)
+df.to_csv('Вакансии.csv', sep=';', encoding='1251')
 
 
-# with open('File.json', 'w', encoding='utf8') as file:
-#     json.dump(Json, file, indent=2, ensure_ascii=False)
