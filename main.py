@@ -6,15 +6,26 @@ from pprint import pprint
 HEADERS = {'accept': '*/*',
            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
             AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
-p = 1
 url = 'https://zan.tambov.gov.ru'
 
-path = f'https://zan.tambov.gov.ru/Employer/EmployerVacancy/?EmployerId=470df58e-ee6b-11e8-adb0-000c2973da2c&Sort=1\
-        &take=10&skip=0&page={p}&pageSize=10'
+
+for p in range(1,3):
+    path = f'https://zan.tambov.gov.ru/Employer/EmployerVacancy/?EmployerId=470df58e-ee6b-11e8-adb0-000c2973da2c&Sort=1\
+            &take=10&skip=0&page={p}&pageSize=10'
+    response = requests.get(path, headers=HEADERS)
+    Js = json.loads(response.text)
+    Data_list = Js['Data']
 
 
-response = requests.get(path, headers=HEADERS)
-Json = json.loads(response.text)
+    for i in range(len(Data_list)):
+        Profession = Data_list[i]['Profession']
+        Required = Data_list[i]['Required']
+        salary = BeautifulSoup(Data_list[i]['FromTo'], 'lxml').text
+        Date = Data_list[i]['Date']
 
-with open('File.json', 'w', encoding='utf8') as file:
-    json.dump(Json, file, indent=2, ensure_ascii=False)
+        with open(f'Вакансии Спецдорсервиса на {Date}.txt', 'a', encoding='utf8') as f:
+            f.write(f"Профессия: {Profession}\nКол-во мест: {Required}\nЗарплата: {salary}\n\n")
+
+
+# with open('File.json', 'w', encoding='utf8') as file:
+#     json.dump(Json, file, indent=2, ensure_ascii=False)
