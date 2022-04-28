@@ -12,12 +12,9 @@ url = 'https://zan.tambov.gov.ru'
 path = f'https://zan.tambov.gov.ru/Employer/EmployerVacancy/?EmployerId=470df58e-ee6b-11e8-adb0-000c2973da2c&Sort=1\
         &take=10&skip=0&page={p}&pageSize=10'
 
-# path2 = input('Введите адрес ссылки:\n')
-
 
 response = requests.get(path, headers=HEADERS)
-
-
 Json = json.loads(response.text)
 
-pprint(Json)
+with open('File.json', 'w', encoding='utf8') as file:
+    json.dump(Json, file, indent=2, ensure_ascii=False)

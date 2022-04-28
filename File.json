@@ -1,0 +1,107 @@
+{
+  "Data": [
+    {
+      "Id": "970314f0-a6c2-4f49-9aae-aad0804b3b3b",
+      "Profession": "Асфальтобетонщик",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">17986</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 12,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "bbf4d4b1-d0ee-412b-af49-5af0300d5ebb",
+      "Profession": "Водитель автомобиля",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">23557</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 32,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "f1c850f3-0678-49f3-8bcc-5c549f586dc3",
+      "Profession": "Дорожный рабочий",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">18044</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 79,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "6efcbd9a-c30c-4862-89cb-2afeb042caa5",
+      "Profession": "Дорожный рабочий",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">17187</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 4,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "8cbfeb0e-9a1b-48d1-b433-dbdca5ba20f7",
+      "Profession": "Дорожный рабочий",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">28070</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 5,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "6436b400-4f4a-4a08-883b-f10416fea18e",
+      "Profession": "Дорожный рабочий",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">18647</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 15,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "08696e79-0120-4fd9-9cff-ec927c376a2b",
+      "Profession": "Кровельщик по рулонным кровлям и по кровлям из штучных материалов",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">14997</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 1,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "4c2de91c-43d2-4fe2-a88e-2e4d9a87995a",
+      "Profession": "Маляр",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">18315</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 1,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "0d8d315e-439f-4a57-bab3-fe46833eba4a",
+      "Profession": "Машинист бульдозера",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">25880</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 1,
+      "AccessibleForDisabled": false
+    },
+    {
+      "Id": "2e89d7ec-ca2a-4afd-8969-20fd88777afe",
+      "Profession": "Машинист дорожно-транспортных машин",
+      "FromTo": "<dl class=\"salary-from-to\"><dt>от</dt><dd class=\"text-right\">25880</dd></dl>",
+      "Area": "г Тамбов",
+      "Source": "\"СПЕЦДОРСЕРВИС\" МБУ",
+      "Date": "27.04.2022",
+      "Required": 6,
+      "AccessibleForDisabled": false
+    }
+  ],
+  "Total": 19,
+  "AggregateResults": null,
+  "Errors": null
+}
